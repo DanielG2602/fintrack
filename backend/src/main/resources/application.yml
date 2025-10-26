@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: fintrack-backend
+  server:
+    port: 8080
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fintrack_db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: fintrack-consumers
+      auto-offset-reset: earliest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus, loggers, beans
