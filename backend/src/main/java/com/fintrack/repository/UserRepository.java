@@ -3,8 +3,11 @@ package com.fintrack.repository;
 import com.fintrack.entity.Boleto;
 import com.fintrack.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository <User, Boleto> {
-    Optional<User> FindByEmail (String email);
+@Repository
+public interface UserRepository extends JpaRepository <User, Long> {
+    Optional<User> findByEmail(String email);
 }
